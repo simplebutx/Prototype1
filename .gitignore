@@ -1,1 +1,8 @@
 Library/
+Logs/
+obj/
+UserSettings/
+.vsconfig
+Assembly-CSharp.csproj
+CannonBallGame.sln
+SlingShot.sln
