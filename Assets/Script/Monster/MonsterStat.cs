@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public interface IMonsterStat
+public interface IMonsterStat//몬스터 스탯 반환 인터페이스
 {
     public MonsterStat ReturnMonsterStat();
 }
 [Serializable]
 public class MonsterStat
 {
-    public float Hp;
-    public float Power;
+    public float maxHp;
+    public float hp;
+    public float power;
 }

@@ -7,8 +7,10 @@ using UnityEngine.Events;
 
 public class MouseUp : MonoBehaviour, IDropHandler {
     public UnityEvent onDropEvent = new UnityEvent();
-    public void OnDrop(PointerEventData data)
+
+    public void OnDrop(PointerEventData data)//드롭시 이벤트
     {
+        Debug.Log("droped");
         onDropEvent.Invoke();
     }
 }
