@@ -2,6 +2,7 @@ Library/
 Logs/
 obj/
 UserSettings/
+.vs/
 .vsconfig
 Assembly-CSharp.csproj
 SlingShot.sln
