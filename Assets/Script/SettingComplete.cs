@@ -7,9 +7,11 @@ public class SettingComplete : MonoBehaviour
     public GameObject slot;
     public GameObject dragPoint;
 
-    public void EndSetting()//¼¼ÆÃ ³¡³ª¸é ½½·Ô ½ºÇÁ¶óÀÌÆ® ºñÈ°¼º ¹× µå·¡±× Æ÷ÀÎÆ® È°¼º
+    public void EndSetting()//ì„¸íŒ… ëë‚˜ë©´ ìŠ¬ë¡¯ ìŠ¤í”„ë¼ì´íŠ¸ ë¹„í™œì„± ë° ë“œë˜ê·¸ í¬ì¸íŠ¸ í™œì„±
     {
         slot.SetActive(false);
         dragPoint.SetActive(true);
+        DataController.instance.gameData.turn += 1;     //ê²Œì„ì— ë“¤ì–´ê°€ë©´ í„´ì´ ì¦ê°€
+        Debug.Log($"{DataController.instance.gameData.turn}í„´");
     }
 }

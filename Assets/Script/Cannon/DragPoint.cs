@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
-public class DragPoint : MonoBehaviour//¸Ê ÀüÃ¼¿¡ Åõ¸íÇÑ Æò¸é µå·¡±× ÇÏ¿© ÃÑ¾Ë ¹æÇâÀ» Á¤ÇÔ
+public class DragPoint : MonoBehaviour//ë§µ ì „ì²´ì— íˆ¬ëª…í•œ í‰ë©´ ë“œë˜ê·¸í•˜ì—¬ ì´ì•Œ ë°©í–¥ì„ ì •í•¨
 {
     public Vector2 originPos;
     private BulletShoot bulletShoot;
@@ -21,8 +21,7 @@ public class DragPoint : MonoBehaviour//¸Ê ÀüÃ¼¿¡ Åõ¸íÇÑ Æò¸é µå·¡±× ÇÏ¿© ÃÑ¾Ë ¹
         if (temp.Length.Equals(0))
         {
             clear = true;
-            turnProcess.GetComponent<turnprogressbutton>().OnClick();
-            //¾ÆÁ÷ ¶°´Ù´Ï´Â ÃÑ¾Ëµé 
+            turnProcess.GetComponent<turnprogressbutton>().OnClick(); 
             this.gameObject.SetActive(false);
         }
         else
@@ -30,7 +29,7 @@ public class DragPoint : MonoBehaviour//¸Ê ÀüÃ¼¿¡ Åõ¸íÇÑ Æò¸é µå·¡±× ÇÏ¿© ÃÑ¾Ë ¹
             clear = false;
         }
     }
-    private void OnMouseUp()//µå·¡±×°¡ ³¡³ª¸é ÃÑ¾Ë ÀÎ½ºÅÏ½ºÈ­ ½ÃÀÛ
+    private void OnMouseUp()//ë“œë˜ê·¸ê°€ ëë‚˜ë©´ ì´ì•Œ ì¸ìŠ¤í„´ìŠ¤í™” ì‹œì‘
     {
         if (!clear)
         {

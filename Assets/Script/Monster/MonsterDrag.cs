@@ -18,23 +18,23 @@ public class MonsterDrag : MonoBehaviour, IDragHandler, IEndDragHandler, IBeginD
         image = transform.GetComponent<Image>();
         monsterPrefab = Resources.Load("Monster") as GameObject;
     }
-    public void OnBeginDrag(PointerEventData eventData)//µå·¡±× ÈÄ ·¹ÀÌÄÉ½ºÆ®·Î ½½·Ô UI¸¦ ¹Ş¾Æ¿À±â À§ÇØ µå·¡±×¿ë ¸ó½ºÅÍÀÇ ·¹ÀÌÄÉ½ºÆ® ºñÈ°¼ºÈ­
+    public void OnBeginDrag(PointerEventData eventData)//ë“œë˜ê·¸ í›„ ë ˆì´ì¼€ìŠ¤íŠ¸ë¡œ ìŠ¬ë¡¯ UIë¥¼ ë°›ì•„ì˜¤ê¸° ìœ„í•´ ë“œë˜ê·¸ìš© ëª¬ìŠ¤í„°ì˜ ë ˆì´ì¼€ìŠ¤íŠ¸ ë¹„í™œì„±í™”
     {
         image.raycastTarget = false;
     }
-    public void OnDrag(PointerEventData eventData)//µå·¡±×Áß À§Ä¡ º¯°æ
+    public void OnDrag(PointerEventData eventData)//ë“œë˜ê·¸ì¤‘ ìœ„ì¹˜ ë³€ê²½
     {
         temp = mainCamera.ScreenToWorldPoint(eventData.position);
         transform.position = temp;
     }
     public void OnEndDrag(PointerEventData eventData)
     {
-        if (eventData.pointerCurrentRaycast.gameObject != null)//¸¸¾à µå·¡±× ³¡³­ ½ÃÁ¡¿¡¼­ ·¹ÀÌÄÉ½ºÆ®·Î ½½·ÔUI ¹Ş¾Æ¿Ã¼ö ÀÖÀ¸¸é ±× ÀÚ¸®¿¡ ¸ó½ºÅÍ ÇÁ¸®ÆÕ »ı¼º
+        if (eventData.pointerCurrentRaycast.gameObject != null)//ë§Œì•½ ë“œë˜ê·¸ ëë‚œ ì‹œì ì—ì„œ ë ˆì´ì¼€ìŠ¤íŠ¸ë¡œ ìŠ¬ë¡¯UI ë°›ì•„ì˜¬ìˆ˜ ìˆìœ¼ë©´ ê·¸ ìë¦¬ì— ëª¬ìŠ¤í„° í”„ë¦¬íŒ¹ ìƒì„±
         {
             monsterCopy = Instantiate(monsterPrefab, eventData.pointerCurrentRaycast.gameObject.transform.position, Quaternion.identity);
             monsterCopy.transform.GetComponent<Monster>().monsterStat = transform.GetComponent<IMonsterStat>().ReturnMonsterStat();
         }
         transform.localPosition = originPos;
-        image.raycastTarget = true;//µ¹¾Æ°¡°í ·¹ÀÌÄÉ½ºÆ® ´Ù½Ã È°¼ºÈ­
+        image.raycastTarget = true;//ëŒì•„ê°€ê³  ë ˆì´ì¼€ìŠ¤íŠ¸ ë‹¤ì‹œ í™œì„±í™”
     }
 }

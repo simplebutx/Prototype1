@@ -17,11 +17,16 @@ public class BulletCollision : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        var dir = Vector2.Reflect(lastVel, collision.contacts[0].normal);//Æò¸é Ãæµ¹½Ã ÀÔ»ç°¢ÀÇ ¹İ»ç°¢À¸·Î ¹æÇâÀ» °è»êÇÏ¿© ¼Óµµ ±×´ë·Î À¯Áö
+        var dir = Vector2.Reflect(lastVel, collision.contacts[0].normal);//í‰ë©´ ì¶©ëŒì‹œ ì…ì‚¬ê°ì˜ ë°˜ì‚¬ê°ìœ¼ë¡œ ë°©í–¥ì„ ê³„ì‚°í•˜ì—¬ ì†ë„ ê·¸ëŒ€ë¡œ ìœ ì§€
         rigidbody.velocity = dir;
-        if (collision.gameObject.CompareTag("Monster"))//Ãæµ¹ÇÑ ¹°Ã¼°¡ ¸ó½ºÅÍÀÌ¸é Ãæµ¹ÀÎÅÍÆäÀÌ½º¸¦ ¹Ş¾Æ¿Í hp¾÷µ¥ÀÌÆ®
+        if (collision.gameObject.CompareTag("Monster"))//ì¶©ëŒí•œ ë¬¼ì²´ê°€ ëª¬ìŠ¤í„°ì´ë©´ ì¶©ëŒì¸í„°í˜ì´ìŠ¤ë¥¼ ë°›ì•„ì™€ hpì—…ë°ì´íŠ¸
         {
-            collision.transform.GetComponent<IMonsterCollision>().UpdateHp(bulletScript.power);
+            if (bulletScript.type.Equals(TYPE.Curse))
+            {
+                collision.gameObject.GetComponent<SpriteRenderer>().color = Color.green;
+            }
+            collision.transform.GetComponent<IMonsterCollision>().UpdateHp(bulletScript.myStat.power);
         }
+        
     }
 }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public interface IMonsterStat//¸ó½ºÅÍ ½ºÅÈ ¹İÈ¯ ÀÎÅÍÆäÀÌ½º
+public interface IMonsterStat//ëª¬ìŠ¤í„° ìŠ¤íƒ¯ ë°˜í™˜ ì¸í„°í˜ì´ìŠ¤
 {
     public MonsterStat ReturnMonsterStat();
 }

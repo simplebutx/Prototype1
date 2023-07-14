@@ -813,12 +813,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   monsterStat:
-    maxHp: 0
-    hp: 0
+    maxHp: 20
+    hp: 20
     power: 0
   onDestroy:
     m_PersistentCalls:
       m_Calls: []
+  myData: {fileID: 11400000, guid: af5ddad69a41db141bec8bcb021bf458, type: 2}
   hpSlider: {fileID: 7214526198292400110}
   isClicked: 0
   xButton: {fileID: 6745802025686209069}
