@@ -30,9 +30,9 @@ public class BulletCollision : MonoBehaviour
         dir = Vector2.Reflect(lastVel, normalVec.normalized);
 
 
-        if (Vector3.Cross(bulletPos - colPoint, lastVel).z > 0)//¹İ½Ã°è
+        if (Vector3.Cross(bulletPos - colPoint, lastVel).z > 0)//ë°˜ì‹œê³„
         {
-            if (Vector3.Cross(lastVel, dir).z > 0)//¹İ½Ã°è ±âÁØ ¿ŞÂÊ(°¢ÀÌ 180µµ°¡ ³Ñ¾î°¨)
+            if (Vector3.Cross(lastVel, dir).z > 0)//ë°˜ì‹œê³„ ê¸°ì¤€ ì™¼ìª½(ê°ì´ 180ë„ê°€ ë„˜ì–´ê°)
             {
                 //Debug.Log("nclLeft");
                 dir = lastVel;
@@ -42,9 +42,9 @@ public class BulletCollision : MonoBehaviour
                 oneFrameCol();
             }
         }
-        else//½Ã°è
+        else//ì‹œê³„
         {
-            if (Vector3.Cross(lastVel, dir).z < 0)//½Ã°è ±âÁØ ¿À¸¥ÂÊ(°¢ÀÌ 180µµ°¡ ³Ñ¾î°¨)
+            if (Vector3.Cross(lastVel, dir).z < 0)//ì‹œê³„ ê¸°ì¤€ ì˜¤ë¥¸ìª½(ê°ì´ 180ë„ê°€ ë„˜ì–´ê°)
             {
                 //Debug.Log("clRight");
                 dir = lastVel;
@@ -60,24 +60,29 @@ public class BulletCollision : MonoBehaviour
             console();
         }
         */
-        rigidbody.velocity = dir;//¾ÕÀÇ °æ¿ì°¡ ¾Æ´Ï¸é Æò¹üÇÏ°Ô ¹İ»ç°¢ ´ëÀÔ
+        rigidbody.velocity = dir;//ì•ì˜ ê²½ìš°ê°€ ì•„ë‹ˆë©´ í‰ë²”í•˜ê²Œ ë°˜ì‚¬ê° ëŒ€ì…
 
 
         if (collision.transform.CompareTag("Monster"))
         {
-            collision.transform.GetComponent<IMonsterCollision>().UpdateHp(bulletScript.power);
+            if (bulletScript.type.Equals(TYPE.Curse))
+            {
+                collision.gameObject.GetComponent<SpriteRenderer>().color = Color.green;
+            }
+            collision.transform.GetComponent<IMonsterCollision>().UpdateHp(bulletScript.myStat.power);
         }
+        
     }
     public void oneFrameCol()
     {
-        if (lastVel.x * rigidbody.velocity.x < 0)//¾ç¼ö¸é °¡·ÎÆò¸é À½¼ö¸é ¼¼·ÎÆò¸é¿¡ ºÎ‹HÈû
+        if (lastVel.x * rigidbody.velocity.x < 0)//ì–‘ìˆ˜ë©´ ê°€ë¡œí‰ë©´ ìŒìˆ˜ë©´ ì„¸ë¡œí‰ë©´ì— ë¶€Â‹Hí˜
         {
-            if (Mathf.Abs(normalVec.x) > Mathf.Abs(normalVec.y))//¹ı¼±º¤ÅÍ°¡ ¼¼·ÎÆò¸é¿¡ ºÎ‹HÇûÀ½À» ¾Ë·ÁÁÜ
+            if (Mathf.Abs(normalVec.x) > Mathf.Abs(normalVec.y))//ë²•ì„ ë²¡í„°ê°€ ì„¸ë¡œí‰ë©´ì— ë¶€Â‹Hí˜”ìŒì„ ì•Œë ¤ì¤Œ
             {
                 //Debug.Log("case1");
                 dir = rigidbody.velocity;
             }
-            else//°¡·ÎÆò¸é
+            else//ê°€ë¡œí‰ë©´
             {
                 //Debug.Log("case2");
                 dir = Vector2.Reflect(rigidbody.velocity, yNormal);
@@ -85,12 +90,12 @@ public class BulletCollision : MonoBehaviour
         }
         else
         {
-            if (Mathf.Abs(normalVec.x) > Mathf.Abs(normalVec.y))//¹ı¼±º¤ÅÍ°¡ ¼¼·ÎÆò¸é¿¡ ºÎ‹HÇûÀ½À» ¾Ë·ÁÁÜ
+            if (Mathf.Abs(normalVec.x) > Mathf.Abs(normalVec.y))//ë²•ì„ ë²¡í„°ê°€ ì„¸ë¡œí‰ë©´ì— ë¶€Â‹Hí˜”ìŒì„ ì•Œë ¤ì¤Œ
             {
                 //Debug.Log("case3");
                 dir = Vector2.Reflect(rigidbody.velocity, xNormal);
             }
-            else//°¡·ÎÆò¸é
+            else//ê°€ë¡œí‰ë©´
             {
                 //Debug.Log("case4");
                 dir = Vector2.Reflect(lastVel, yNormal);

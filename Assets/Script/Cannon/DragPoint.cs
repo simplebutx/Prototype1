@@ -4,29 +4,54 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
-public class DragPoint : MonoBehaviour//¸Ê ÀüÃ¼¿¡ Åõ¸íÇÑ Æò¸é µå·¡±× ÇÏ¿© ÃÑ¾Ë ¹æÇâÀ» Á¤ÇÔ
+public class DragPoint : MonoBehaviour//ë§µ ì „ì²´ì— íˆ¬ëª…í•œ í‰ë©´ ë“œë˜ê·¸í•˜ì—¬ ì´ì•Œ ë°©í–¥ì„ ì •í•¨
 {
     public Vector2 originPos;
     private BulletShoot bulletShoot;
+    private bool clear = false;
+    public GameObject turnProcess;
     private void Start()
     {
         bulletShoot = transform.parent.GetComponent<BulletShoot>();
         originPos = transform.position;
     }
-    private void OnMouseUp()//µå·¡±×°¡ ³¡³ª¸é ÃÑ¾Ë ÀÎ½ºÅÏ½ºÈ­ ½ÃÀÛ
+    private void Update()
     {
-        bulletShoot.InstantiateBullet();
-        transform.position = originPos;
+        GameObject[] temp = GameObject.FindGameObjectsWithTag("Monster");
+        if (temp.Length.Equals(0))
+        {
+            clear = true;
+            turnProcess.GetComponent<turnprogressbutton>().OnClick(); 
+            this.gameObject.SetActive(false);
+        }
+        else
+        {
+            clear = false;
+        }
+    }
+    private void OnMouseUp()//ë“œë˜ê·¸ê°€ ëë‚˜ë©´ ì´ì•Œ ì¸ìŠ¤í„´ìŠ¤í™” ì‹œì‘
+    {
+        if (!clear)
+        {
+            bulletShoot.InstantiateBullet();
+            transform.position = originPos;
+        }
     }
     private void OnMouseDown()
     {
-        Vector2 objectPos = GetMouseWorldPosition();
-        transform.position = objectPos;
+        if (!clear)
+        {
+            Vector2 objectPos = GetMouseWorldPosition();
+            transform.position = objectPos;
+        }
     }
     void OnMouseDrag()
     {
-        Vector2 objectPos = GetMouseWorldPosition();
-        transform.position = objectPos;
+        if (!clear)
+        {
+            Vector2 objectPos = GetMouseWorldPosition();
+            transform.position = objectPos;
+        }
     }
     Vector2 GetMouseWorldPosition()
     {

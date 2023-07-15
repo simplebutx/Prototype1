@@ -3,20 +3,30 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
+using UnityEngine.EventSystems;
 
-public interface IMonsterCollision//ÃÑ¾Ë°ú Ãæµ¹½Ã hp¾÷µ¥ÀÌÆ® ÀÎÅÍÆäÀÌ½º
+public interface IMonsterCollision//ì´ì•Œê³¼ ì¶©ëŒì‹œ hpì—…ë°ì´íŠ¸ ì¸í„°í˜ì´ìŠ¤
 {
     public void UpdateHp(float damage);
 }
-public class Monster : MonoBehaviour, IMonsterStat, IMonsterCollision
+public enum State
+{
+    NORMAL, ISCURSED, BURNING
+}
+public class Monster : MonoBehaviour, IMonsterStat, IMonsterCollision,IPointerClickHandler
 {
     public MonsterStat monsterStat = new MonsterStat();
     public UnityEvent onDestroy = new UnityEvent();
+    public ScriptableMonster myData;
     public Slider hpSlider;
+    public bool isClicked = false;
+    public GameObject xButton;
 
     private void Start()
     {
         onDestroy.AddListener(DestroySelf);
+        monsterStat.hp = myData.maxHp;
+        monsterStat.maxHp = myData.maxHp;
     }
 
     public void UpdateHp(float damage)
@@ -36,5 +46,11 @@ public class Monster : MonoBehaviour, IMonsterStat, IMonsterCollision
     public MonsterStat ReturnMonsterStat()
     {
         return monsterStat;
+    }
+    public void OnPointerClick(PointerEventData eventData)//ëª¬ìŠ¤í„° í´ë¦­ì‹œ xë²„íŠ¼ ë‚˜íƒ€ë‚¨
+    {
+        isClicked = (isClicked ? false : true);
+        xButton.SetActive(isClicked);
+
     }
 }
