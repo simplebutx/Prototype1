@@ -13,7 +13,7 @@ public class ChooseBullet : MonoBehaviour
     public Button Btn_Bullet3;
     public Button Btn_Bullet4;
 
-    public GameObject Bullet1;
+    public GameObject Bullet;
     public GameObject Bullet2;
     public GameObject Bullet3;
     public GameObject Bullet4;
@@ -31,7 +31,7 @@ public class ChooseBullet : MonoBehaviour
     }
     public void Bullet1Clicked()
     {
-        choosedBullet = Bullet1;
+        choosedBullet = Bullet;
         bulletShoot.GetComponent<BulletShoot>().choose();
     }
 
