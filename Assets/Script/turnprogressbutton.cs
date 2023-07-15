@@ -11,15 +11,19 @@ public class turnprogressbutton : MonoBehaviour
     {
         slot.SetActive(true);
         dragPoint.SetActive(true);
-        GameObject[] tempMonsters = GameObject.FindGameObjectsWithTag("Monster");
         GameObject[] tempBullets = GameObject.FindGameObjectsWithTag("Bullet");
-        for (int i = 0; i < tempMonsters.Length; i++)
-        {
-            Destroy(tempMonsters[i]);
-        }
+        GameObject[] tempMonsters = GameObject.FindGameObjectsWithTag("Monster");
         for (int i = 0; i < tempBullets.Length; i++)
         {
             Destroy(tempBullets[i]);
+        }
+        for (int i = 0; i < tempMonsters.Length; i++)
+        {
+            Monster monster = tempMonsters[i].GetComponent<Monster>();
+            if (monster.myState.Equals(State.BURNING))
+            {
+                tempMonsters[i].GetComponent<IMonsterCollision>().UpdateHp(4);
+            }
         }
     }
 }

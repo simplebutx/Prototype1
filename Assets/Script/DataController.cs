@@ -15,11 +15,9 @@ public class GameData
     public int stageNum = 0;    //현재 진행중인 스테이지
     public int gold = 0;    //보유 골드
 
-
 }
 public class DataController : MonoBehaviour
 {
-    
     public static DataController instance;
     public GameData gameData = new GameData();
     private void Awake()

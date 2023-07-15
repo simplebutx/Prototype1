@@ -21,14 +21,14 @@ public class Monster : MonoBehaviour, IMonsterStat, IMonsterCollision,IPointerCl
     public Slider hpSlider;
     public bool isClicked = false;
     public GameObject xButton;
-
+    public State myState = State.NORMAL; //영진 추가
+    public int myBurningTurn = 2;
     private void Start()
     {
         onDestroy.AddListener(DestroySelf);
         monsterStat.hp = myData.maxHp;
         monsterStat.maxHp = myData.maxHp;
     }
-
     public void UpdateHp(float damage)
     {
         monsterStat.hp -= damage;

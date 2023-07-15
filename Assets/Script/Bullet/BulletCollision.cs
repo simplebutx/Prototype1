@@ -69,6 +69,12 @@ public class BulletCollision : MonoBehaviour
             {
                 collision.gameObject.GetComponent<SpriteRenderer>().color = Color.green;
             }
+            if (bulletScript.type.Equals(TYPE.Fire))
+            {
+                Monster monster = collision.gameObject.GetComponent<Monster>();
+                monster.myState = State.BURNING;
+                monster.myBurningTurn = 2;
+            }
             collision.transform.GetComponent<IMonsterCollision>().UpdateHp(bulletScript.myStat.power);
         }
         
