@@ -37,6 +37,21 @@ public class Monster : MonoBehaviour, IMonsterStat, IMonsterCollision,IPointerCl
             onDestroy.Invoke();
         }
         hpSlider.value = monsterStat.hp / monsterStat.maxHp ;
+
+        CheckFire();
+        CheckCurse();
+
+    }
+    public void CheckFire()
+    {
+        if (myBurningTurn > 0 && myState.Equals(State.BURNING))
+        {
+            myBurningTurn -= 1;
+        }
+    }
+    public void CheckCurse()
+    {
+      //  GameObject[] tempMonsters = GameObject.FindGameObjectsWithTag("Monster");
     }
     public void DestroySelf()
     {

@@ -20,7 +20,7 @@ public class turnprogressbutton : MonoBehaviour
         for (int i = 0; i < tempMonsters.Length; i++)
         {
             Monster monster = tempMonsters[i].GetComponent<Monster>();
-            if (monster.myState.Equals(State.BURNING))
+            if (monster.myState.Equals(State.BURNING)&&monster.myBurningTurn>0)
             {
                 tempMonsters[i].GetComponent<IMonsterCollision>().UpdateHp(4);
             }

@@ -4,15 +4,12 @@ using UnityEngine;
 
 public class CurseBullet : Bullet
 {
-    // Start is called before the first frame update
-    void Start()
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if (collision.transform.CompareTag("Monster"))
+        {
+            collision.gameObject.GetComponent<SpriteRenderer>().color = Color.green;
+            collision.gameObject.GetComponent<Monster>().myState = State.ISCURSED;
+        }
     }
 }

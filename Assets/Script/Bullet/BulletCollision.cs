@@ -65,16 +65,6 @@ public class BulletCollision : MonoBehaviour
 
         if (collision.transform.CompareTag("Monster"))
         {
-            if (bulletScript.type.Equals(TYPE.Curse))
-            {
-                collision.gameObject.GetComponent<SpriteRenderer>().color = Color.green;
-            }
-            if (bulletScript.type.Equals(TYPE.Fire))
-            {
-                Monster monster = collision.gameObject.GetComponent<Monster>();
-                monster.myState = State.BURNING;
-                monster.myBurningTurn = 2;
-            }
             collision.transform.GetComponent<IMonsterCollision>().UpdateHp(bulletScript.myStat.power);
         }
         

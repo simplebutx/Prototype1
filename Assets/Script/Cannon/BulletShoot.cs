@@ -26,6 +26,6 @@ public class BulletShoot : MonoBehaviour
     public void InstantiateBullet()//�Ѿ� �ν��Ͻ�ȭ �� ���� ����
     {
         bulletCopy = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
-        bulletCopy.GetComponent<Bullet>().direction = dragPoint.position - transform.position;
+        bulletCopy.GetComponent<IBulletStat>().ReturnBulletStat().direction = dragPoint.position - transform.position;
     }
 }
