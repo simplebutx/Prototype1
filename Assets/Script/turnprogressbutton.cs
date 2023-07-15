@@ -7,6 +7,7 @@ public class turnprogressbutton : MonoBehaviour
 {
     public GameObject slot;
     public GameObject dragPoint;
+    public FireBullet fb;
     public void OnClick()
     {
         slot.SetActive(true);
@@ -17,12 +18,15 @@ public class turnprogressbutton : MonoBehaviour
         {
             Destroy(tempBullets[i]);
         }
-        for (int i = 0; i < tempMonsters.Length; i++)
+        for (int i = 0; i < tempMonsters.Length; i++)   // 턴이 종료됐을때 화염데미지
         {
             Monster monster = tempMonsters[i].GetComponent<Monster>();
+
             if (monster.myState.Equals(State.BURNING)&&monster.myBurningTurn>0)
             {
-                tempMonsters[i].GetComponent<IMonsterCollision>().UpdateHp(4);
+                IMonsterCollision imc = tempMonsters[i].GetComponent<IMonsterCollision>();
+                imc.CheckFire();
+                imc.UpdateHp(fb.myStat.power) ;
             }
         }
     }

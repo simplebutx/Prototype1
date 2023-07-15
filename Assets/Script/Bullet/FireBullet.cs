@@ -10,7 +10,7 @@ public class FireBullet : Bullet
         {
             Monster monster = collision.gameObject.GetComponent<Monster>();
             monster.myState = State.BURNING;
-            monster.myBurningTurn = 2;
+            monster.myBurningTurn = 2;  //턴 초기화
         }
     }
 }

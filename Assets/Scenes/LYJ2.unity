@@ -15035,6 +15035,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slot: {fileID: 758155789}
   dragPoint: {fileID: 1739932107}
+  fb: {fileID: 5426666524557955524, guid: 179c5f97a087ec245a39415a4d6e622a, type: 3}
 --- !u!1 &1145882620
 GameObject:
   m_ObjectHideFlags: 0

@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 5426666524557955524}
   m_Layer: 6
   m_Name: FireBullet
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -154,4 +154,3 @@ MonoBehaviour:
     direction: {x: 0, y: 0}
     power: 4
     speed: 10
-  type: 1
