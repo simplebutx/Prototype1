@@ -30,8 +30,8 @@ public class Bullet:MonoBehaviour
     private void Start()//인스턴스화 하면 캐논에서 받아온 direction으로 발사된다.
     {
         rigidbody = GetComponent<Rigidbody2D>();
-        myStat.power= BulletShoot.instance.bulletPower;
-        myStat.speed = BulletShoot.instance.bulletSpeed;    //필드 버튼(normal, fire, curse)으로 결정되는 공격력과 속도를 전달
+        //myStat.power= BulletShoot.instance.bulletPower;
+        //myStat.speed = BulletShoot.instance.bulletSpeed;    //필드 버튼(normal, fire, curse)으로 결정되는 공격력과 속도를 전달
         Debug.Log(myStat.speed);
         rigidbody.velocity = direction.normalized * myStat.speed;
     }

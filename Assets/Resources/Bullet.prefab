@@ -140,8 +140,8 @@ MonoBehaviour:
   direction: {x: 0, y: 0}
   myStat:
     direction: {x: 0, y: 0}
-    power: 0
-    speed: 0
+    power: 20
+    speed: 20
   type: 0
 --- !u!114 &5976298124921366606
 MonoBehaviour:
