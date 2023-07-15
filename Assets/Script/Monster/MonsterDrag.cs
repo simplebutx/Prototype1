@@ -32,7 +32,8 @@ public class MonsterDrag : MonoBehaviour, IDragHandler, IEndDragHandler, IBeginD
         if (eventData.pointerCurrentRaycast.gameObject != null)//만약 드래그 끝난 시점에서 레이케스트로 슬롯UI 받아올수 있으면 그 자리에 몬스터 프리팹 생성
         {
             monsterCopy = Instantiate(monsterPrefab, eventData.pointerCurrentRaycast.gameObject.transform.position, Quaternion.identity);
-            monsterCopy.transform.GetComponent<Monster>().monsterStat = transform.GetComponent<IMonsterStat>().ReturnMonsterStat();
+            monsterCopy.transform.GetComponent<Monster>().monsterStat.hp = transform.GetComponent<IMonsterStat>().ReturnMonsterStat().hp;
+            monsterCopy.transform.GetComponent<Monster>().monsterStat.maxHp = transform.GetComponent<IMonsterStat>().ReturnMonsterStat().maxHp;
         }
         transform.localPosition = originPos;
         image.raycastTarget = true;//돌아가고 레이케스트 다시 활성화
