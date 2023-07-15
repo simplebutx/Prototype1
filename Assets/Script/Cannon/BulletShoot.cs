@@ -12,10 +12,18 @@ public class BulletShoot : MonoBehaviour
 
     private void Start()
     {
-        choosedBullet = chooseBullet.GetComponent<ChooseBullet>().choosedBullet;
         dragPoint = transform.Find("DragPoint");
+        
+    }
+
+
+    public void choose()
+    {
+        choosedBullet = chooseBullet.GetComponent<ChooseBullet>().choosedBullet;
         bulletPrefab = Resources.Load(choosedBullet.name) as GameObject;
     }
+
+
     public void InstantiateBullet()//총알 인스턴스화 및 방향 전달
     {
         bulletCopy = Instantiate(bulletPrefab, transform.position, Quaternion.identity);

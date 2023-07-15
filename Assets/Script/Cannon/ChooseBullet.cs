@@ -18,6 +18,10 @@ public class ChooseBullet : MonoBehaviour
     public GameObject Bullet3;
     public GameObject Bullet4;
 
+    public BulletShoot bulletShoot;
+
+
+
     public void Start()
     {
         Btn_Bullet1.onClick.AddListener(Bullet1Clicked);
@@ -28,25 +32,29 @@ public class ChooseBullet : MonoBehaviour
     public void Bullet1Clicked()
     {
         choosedBullet = Bullet1;
+        bulletShoot.GetComponent<BulletShoot>().choose();
     }
 
     public void Bullet2Clicked()
     {
         choosedBullet = Bullet2;
+        bulletShoot.GetComponent<BulletShoot>().choose();
     }
 
     public void Bullet3Clicked()
     {
         choosedBullet = Bullet3;
+        bulletShoot.GetComponent<BulletShoot>().choose();
     }
 
     public void Bullet4Clicked()
     {
         choosedBullet = Bullet4;
+        bulletShoot.GetComponent<BulletShoot>().choose();
     }
 
     public void Update()
     {
-        Debug.Log(choosedBullet);
+        //Debug.Log(choosedBullet);
     }
 }

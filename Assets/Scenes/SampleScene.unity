@@ -11385,7 +11385,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: -50.00003}
+  m_AnchoredPosition: {x: 0, y: -50.00006}
   m_SizeDelta: {x: 1080, y: 100}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &900636624
@@ -23880,7 +23880,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 0}
   chooseBullet: {fileID: 1912781590}
-  choosedBullet: {fileID: 0}
+  choosedBullet: {fileID: 1912781587}
 --- !u!114 &1912781590
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23893,7 +23893,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39e657005bcf2c74eb100aa02d824a1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  choosedBullet: {fileID: 0}
+  choosedBullet: {fileID: 1912781587}
   Btn_Bullet1: {fileID: 1213712862}
   Btn_Bullet2: {fileID: 1527899253}
   Btn_Bullet3: {fileID: 250996942}
@@ -23902,6 +23902,7 @@ MonoBehaviour:
   Bullet2: {fileID: 1847814997317675589, guid: c0a3a6a6c121ee94dbbad7e626e2812a, type: 3}
   Bullet3: {fileID: 1847814997317675589, guid: 396d4dcb1d454ab418b32775e6db37c4, type: 3}
   Bullet4: {fileID: 1847814997317675589, guid: ee45c67d47738634da76f7e7fd68f97d, type: 3}
+  bulletShoot: {fileID: 1912781589}
 --- !u!1 &1914160292
 GameObject:
   m_ObjectHideFlags: 0
