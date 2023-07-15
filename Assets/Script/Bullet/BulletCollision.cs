@@ -6,6 +6,12 @@ public class BulletCollision : MonoBehaviour
     private Rigidbody2D rigidbody;
     private Bullet bulletScript;
     private Vector2 lastVel;
+    Vector2 xNormal = new Vector2(1f, 0f);
+    Vector2 yNormal = new Vector2(0f, 1f);
+    Vector2 bulletPos;
+    Vector2 colPoint;
+    Vector2 normalVec;
+    Vector2 dir;
     private void Start()
     {
         rigidbody = transform.GetComponent<Rigidbody2D>();
@@ -17,11 +23,90 @@ public class BulletCollision : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        var dir = Vector2.Reflect(lastVel, collision.contacts[0].normal);//Æò¸é Ãæµ¹½Ã ÀÔ»ç°¢ÀÇ ¹İ»ç°¢À¸·Î ¹æÇâÀ» °è»êÇÏ¿© ¼Óµµ ±×´ë·Î À¯Áö
-        rigidbody.velocity = dir;
-        if (collision.gameObject.CompareTag("Monster"))//Ãæµ¹ÇÑ ¹°Ã¼°¡ ¸ó½ºÅÍÀÌ¸é Ãæµ¹ÀÎÅÍÆäÀÌ½º¸¦ ¹Ş¾Æ¿Í hp¾÷µ¥ÀÌÆ®
+        bulletPos = transform.position;
+        colPoint = collision.contacts[0].point;
+        normalVec = collision.contacts[0].normal;
+        dir = new Vector2();
+        dir = Vector2.Reflect(lastVel, normalVec.normalized);
+
+
+        if (Vector3.Cross(bulletPos - colPoint, lastVel).z > 0)//ë°˜ì‹œê³„
         {
-            collision.transform.GetComponent<IMonsterCollision>().UpdateHp(bulletScript.power);
+            if (Vector3.Cross(lastVel, dir).z > 0)//ë°˜ì‹œê³„ ê¸°ì¤€ ì™¼ìª½(ê°ì´ 180ë„ê°€ ë„˜ì–´ê°)
+            {
+                //Debug.Log("nclLeft");
+                dir = lastVel;
+            }
+            else if (lastVel.magnitude == rigidbody.velocity.magnitude)
+            {
+                oneFrameCol();
+            }
         }
+        else//ì‹œê³„
+        {
+            if (Vector3.Cross(lastVel, dir).z < 0)//ì‹œê³„ ê¸°ì¤€ ì˜¤ë¥¸ìª½(ê°ì´ 180ë„ê°€ ë„˜ì–´ê°)
+            {
+                //Debug.Log("clRight");
+                dir = lastVel;
+            }
+            else if (lastVel.magnitude == rigidbody.velocity.magnitude)
+            {
+                oneFrameCol();
+            }
+        }
+        /*
+        if(dir.x == 0 || dir.y == 0)
+        {
+            console();
+        }
+        */
+        rigidbody.velocity = dir;//ì•ì˜ ê²½ìš°ê°€ ì•„ë‹ˆë©´ í‰ë²”í•˜ê²Œ ë°˜ì‚¬ê° ëŒ€ì…
+
+
+        if (collision.transform.CompareTag("Monster"))
+        {
+            if (bulletScript.type.Equals(TYPE.Curse))
+            {
+                collision.gameObject.GetComponent<SpriteRenderer>().color = Color.green;
+            }
+            collision.transform.GetComponent<IMonsterCollision>().UpdateHp(bulletScript.myStat.power);
+        }
+        
+    }
+    public void oneFrameCol()
+    {
+        if (lastVel.x * rigidbody.velocity.x < 0)//ì–‘ìˆ˜ë©´ ê°€ë¡œí‰ë©´ ìŒìˆ˜ë©´ ì„¸ë¡œí‰ë©´ì— ë¶€Â‹Hí˜
+        {
+            if (Mathf.Abs(normalVec.x) > Mathf.Abs(normalVec.y))//ë²•ì„ ë²¡í„°ê°€ ì„¸ë¡œí‰ë©´ì— ë¶€Â‹Hí˜”ìŒì„ ì•Œë ¤ì¤Œ
+            {
+                //Debug.Log("case1");
+                dir = rigidbody.velocity;
+            }
+            else//ê°€ë¡œí‰ë©´
+            {
+                //Debug.Log("case2");
+                dir = Vector2.Reflect(rigidbody.velocity, yNormal);
+            }
+        }
+        else
+        {
+            if (Mathf.Abs(normalVec.x) > Mathf.Abs(normalVec.y))//ë²•ì„ ë²¡í„°ê°€ ì„¸ë¡œí‰ë©´ì— ë¶€Â‹Hí˜”ìŒì„ ì•Œë ¤ì¤Œ
+            {
+                //Debug.Log("case3");
+                dir = Vector2.Reflect(rigidbody.velocity, xNormal);
+            }
+            else//ê°€ë¡œí‰ë©´
+            {
+                //Debug.Log("case4");
+                dir = Vector2.Reflect(lastVel, yNormal);
+            }
+        }
+    }
+    public void console()
+    {
+        Debug.Log("rigidbodyVel:" + rigidbody.velocity);
+        Debug.Log("lastVel:" + lastVel);
+        Debug.Log("normalVec:" + normalVec.normalized);
+        Debug.Log("dir:" + dir);
     }
 }

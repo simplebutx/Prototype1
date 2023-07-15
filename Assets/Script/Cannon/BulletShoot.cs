@@ -1,12 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
 public class BulletShoot : MonoBehaviour
 {
     public GameObject bulletPrefab;
     private GameObject bulletCopy;
     private Transform dragPoint;
-
     public ChooseBullet chooseBullet;
     public GameObject choosedBullet;
 
@@ -16,7 +16,6 @@ public class BulletShoot : MonoBehaviour
         
     }
 
-
     public void choose()
     {
         choosedBullet = chooseBullet.GetComponent<ChooseBullet>().choosedBullet;
@@ -24,7 +23,7 @@ public class BulletShoot : MonoBehaviour
     }
 
 
-    public void InstantiateBullet()//ÃÑ¾Ë ÀÎ½ºÅÏ½ºÈ­ ¹× ¹æÇâ Àü´Þ
+    public void InstantiateBullet()//ï¿½Ñ¾ï¿½ ï¿½Î½ï¿½ï¿½Ï½ï¿½È­ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     {
         bulletCopy = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
         bulletCopy.GetComponent<Bullet>().direction = dragPoint.position - transform.position;

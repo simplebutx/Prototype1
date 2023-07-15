@@ -6,7 +6,7 @@ public class DropMonster : MonoBehaviour, IMonsterStat
 {
     public MonsterStat monsterStat = new MonsterStat();
     public TMP_InputField inputVal;
-    public void UpdateHpStat()//ÀÎÇ²¹Ú½º¿¡¼­ ¹ŞÀº hp Àû¿ë½ÃÄÑÁÖ´Â ÇÔ¼ö MonsterHPInputÀÇ OnEndEditÂüÁ¶ 
+    public void UpdateHpStat()//ì¸í’‹ë°•ìŠ¤ì—ì„œ ë°›ì€ hp ì ìš©ì‹œì¼œì£¼ëŠ” í•¨ìˆ˜ MonsterHPInputì˜ OnEndEditì°¸ì¡°
     {
         if (float.TryParse(inputVal.text.Trim(), out float val))
         {
