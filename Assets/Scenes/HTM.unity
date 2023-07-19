@@ -7606,7 +7606,6 @@ GameObject:
   m_Component:
   - component: {fileID: 561506445}
   - component: {fileID: 561506444}
-  - component: {fileID: 561506443}
   m_Layer: 0
   m_Name: Cannon
   m_TagString: Untagged
@@ -7614,28 +7613,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &561506443
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 561506442}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 39e657005bcf2c74eb100aa02d824a1e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  choosedBullet: {fileID: 561506442}
-  Btn_Bullet1: {fileID: 560212771}
-  Btn_Bullet2: {fileID: 1798853888}
-  Btn_Bullet3: {fileID: 212104361}
-  Btn_Bullet4: {fileID: 352961478}
-  Bullet: {fileID: 1847814997317675589, guid: c46ef1c9cc4568047b7a923aa6ab1340, type: 3}
-  Bullet2: {fileID: 1847814997317675589, guid: c0a3a6a6c121ee94dbbad7e626e2812a, type: 3}
-  Bullet3: {fileID: 1847814997317675589, guid: 396d4dcb1d454ab418b32775e6db37c4, type: 3}
-  Bullet4: {fileID: 1847814997317675589, guid: ee45c67d47738634da76f7e7fd68f97d, type: 3}
-  bulletShoot: {fileID: 561506444}
 --- !u!114 &561506444
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7649,7 +7626,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 0}
-  chooseBullet: {fileID: 561506443}
+  chooseBullet: {fileID: 1838412091}
   choosedBullet: {fileID: 561506442}
 --- !u!4 &561506445
 Transform:
@@ -23057,6 +23034,60 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1821758313}
   m_CullTransparentMesh: 1
+--- !u!1 &1838412090
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1838412092}
+  - component: {fileID: 1838412091}
+  m_Layer: 0
+  m_Name: ChooseBullet
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1838412091
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1838412090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39e657005bcf2c74eb100aa02d824a1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  choosedBullet: {fileID: 0}
+  Btn_Bullet1: {fileID: 560212771}
+  Btn_Bullet2: {fileID: 1798853888}
+  Btn_Bullet3: {fileID: 212104361}
+  Btn_Bullet4: {fileID: 352961478}
+  Bullet: {fileID: 1847814997317675589, guid: c46ef1c9cc4568047b7a923aa6ab1340, type: 3}
+  Bullet2: {fileID: 1847814997317675589, guid: c0a3a6a6c121ee94dbbad7e626e2812a, type: 3}
+  Bullet3: {fileID: 1847814997317675589, guid: 396d4dcb1d454ab418b32775e6db37c4, type: 3}
+  Bullet4: {fileID: 1847814997317675589, guid: ee45c67d47738634da76f7e7fd68f97d, type: 3}
+  bulletShoot: {fileID: 561506444}
+--- !u!4 &1838412092
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1838412090}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -11.488323, y: -0.021560028, z: 190.53314}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1843734713
 GameObject:
   m_ObjectHideFlags: 0

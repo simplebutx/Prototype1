@@ -20,8 +20,6 @@ public class ChooseBullet : MonoBehaviour
 
     public BulletShoot bulletShoot;
 
-
-
     public void Start() //각 버튼에 해당 총알 가져오는 이벤트 할당
     {
         Btn_Bullet1.onClick.AddListener(Bullet1Clicked);
