@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -7,7 +7,7 @@ using UnityEngine.EventSystems;
 
 public interface IMonsterCollision//총알과 충돌시 hp업데이트 인터페이스
 {
-    public void UpdateHp(float damage);
+    public bool UpdateHp(float damage);
 }
 public enum State
 {
@@ -17,7 +17,6 @@ public class Monster : MonoBehaviour, IMonsterStat, IMonsterCollision,IPointerCl
 {
     public MonsterStat monsterStat = new MonsterStat();
     public UnityEvent onDestroy = new UnityEvent();
-    public ScriptableMonster myData;
     public Slider hpSlider;
     public bool isClicked = false;
     public GameObject xButton;
@@ -25,18 +24,18 @@ public class Monster : MonoBehaviour, IMonsterStat, IMonsterCollision,IPointerCl
     private void Start()
     {
         onDestroy.AddListener(DestroySelf);
-        monsterStat.hp = myData.maxHp;
-        monsterStat.maxHp = myData.maxHp;
     }
 
-    public void UpdateHp(float damage)
+    public bool UpdateHp(float damage)
     {
         monsterStat.hp -= damage;
         if (monsterStat.hp <= 0)
         {
             onDestroy.Invoke();
+            return true;
         }
         hpSlider.value = monsterStat.hp / monsterStat.maxHp ;
+        return false;
     }
     public void DestroySelf()
     {

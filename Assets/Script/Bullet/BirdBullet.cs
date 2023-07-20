@@ -1,61 +1,61 @@
-using System.Collections;
+Ôªøusing System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BirdBullet : MonoBehaviour
+public class BirdBullet : Bullet
 {
-    public Vector2 direction;
-    private Rigidbody2D rigidbody;
-    public float speed;
-    public float power;
     public GameObject babyBirdPrefab;
     public GameObject babyBirdCopy;
-    public GameObject babyBirdCopy2;
     public List<GameObject> monsters = new List<GameObject>();
+    private int babyBirdNum;
 
-    private void Start()//¿ŒΩ∫≈œΩ∫»≠ «œ∏È ƒ≥≥Ìø°º≠ πﬁæ∆ø¬ direction¿∏∑Œ πﬂªÁµ»¥Ÿ.
+    protected override void Start()//Î™¨Ïä§ÌÑ∞ Ï∞æÏïÑÏÑú Ï≤¥Î†•Ïàú Î¶¨Ïä§Ìä∏Ï†ÄÏû•
     {
-        rigidbody = transform.GetComponent<Rigidbody2D>();
-        rigidbody.velocity = direction.normalized * speed;
         babyBirdPrefab = Resources.Load("BirdBabyBullet") as GameObject;
-        
         monsters.AddRange(GameObject.FindGameObjectsWithTag("Monster"));
         monsters.Sort(compareHp);
-
-
+        base.Start();
     }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.transform.CompareTag("Monster"))
-        {
-            InstantiateBaby();
-            Destroy(gameObject);
-        }
-    }
-    private void InstantiateBaby()
+    public void InstantiateBaby()//ÏÉàÎÅºÏÜåÌôò
     {
         float initX = Random.Range(-1f, 1f);
         float initY = Random.Range(-1f, 1f);
 
         Vector2 startDir = new Vector2(initX, initY);
-        Vector3 startDir2 = Quaternion.AngleAxis(120, Vector3.forward) * startDir;
-        Vector3 startDir3 = Quaternion.AngleAxis(240, Vector3.forward) * startDir;
 
-        babyBirdCopy = Instantiate(babyBirdPrefab, transform.position, Quaternion.identity);
-        babyBirdCopy.GetComponent<BirdBabyBullet>().target = monsters[0];
-        babyBirdCopy.GetComponent<BirdBabyBullet>().startDir = startDir.normalized;
-        babyBirdCopy = Instantiate(babyBirdPrefab, transform.position, Quaternion.identity);
-        babyBirdCopy.GetComponent<BirdBabyBullet>().target = monsters[0];
-        babyBirdCopy.GetComponent<BirdBabyBullet>().startDir = startDir2.normalized;
-        babyBirdCopy = Instantiate(babyBirdPrefab, transform.position, Quaternion.identity);
-        babyBirdCopy.GetComponent<BirdBabyBullet>().target = monsters[0];
-        babyBirdCopy.GetComponent<BirdBabyBullet>().startDir = startDir3.normalized;
+        for(int i = 0; i < babyBirdNum; i++)
+        {
+            babyBirdCopy = Instantiate(babyBirdPrefab, transform.position, Quaternion.identity);
+            babyBirdCopy.GetComponent<BirdBabyBullet>().target = monsters[i];
+            babyBirdCopy.GetComponent<BirdBabyBullet>().startDir = Quaternion.AngleAxis(360f/babyBirdNum*i, Vector3.forward) * startDir.normalized;
+        }
     }
     private int compareHp(GameObject A, GameObject B)
     {
         float aHp = A.GetComponent<IMonsterStat>().ReturnMonsterStat().hp;
         float bHp = B.GetComponent<IMonsterStat>().ReturnMonsterStat().hp;
         return aHp < bHp ? -1 : 1;
+    }
+    public override void StarClassification()
+    {
+        if (myStat.star == 1)
+        {
+            babyBirdNum = 2;
+            myStat.power = 3;
+        }
+        else if (myStat.star == 2)
+        {
+            babyBirdNum = 6;
+            myStat.power = 40;
+        }
+        else
+        {
+            babyBirdNum = 10;
+            myStat.power = 400;
+        }
+    }
+    public void StartTargeting()
+    {
+        if (monsters.Count < babyBirdNum) babyBirdNum = monsters.Count;
     }
 }
