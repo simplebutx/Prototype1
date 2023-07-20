@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -12,27 +12,12 @@ public class CurseBullet : Bullet
         {
             Monster monster = collision.gameObject.GetComponent<Monster>();
             collision.gameObject.GetComponent<SpriteRenderer>().color = Color.green;
-            monster.myState = State.ISCURSED;
-            if (monster.myCurseTurn.Equals(0))  // Ã³À½ ÀúÁÖ±¸½½ÇÑÅ× °ø°İ´çÇÑ ÅÏÀ» ±â·Ï
+            monster.myState = StateSystem.State.ISCURSED;
+            if (monster.myCurseTurn.Equals(0))  // Ã³ï¿½ï¿½ ï¿½ï¿½ï¿½Ö±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½İ´ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
             {
                 monster.myCurseTurn = DataController.instance.gameData.turn;
             }
-            CheckingCurse(myStat.power * percentage[0],collision,monster);   
         }
     }
-    void CheckingCurse(float additionalDamage,Collision2D collision,Monster monsterScript)
-    {
-        GameObject[] tempMonsters = GameObject.FindGameObjectsWithTag("Monster");
-        foreach (GameObject monster in tempMonsters)
-        {
-            int turnDiff = DataController.instance.gameData.turn - monsterScript.myCurseTurn;
-            //1. Ãæµ¹ÇÑ ¸ó½ºÅÍ°¡ ÀúÁÖ¹ŞÀº »óÅÂÀÏ¶§ (Collided monster must be cursed)
-            //2. Ãæµ¹ÇÑ ¸ó½ºÅÍ¸¦ Á¦¿ÜÇÑ ´Ù¸¥ ÀúÁÖ¹ŞÀº ¸ó½ºÅÍµé¿¡°Ô¸¸ Ãß°¡ µ¥¹ÌÁö (Additional damage is not applied to the collided monster)
-            //3. ÀúÁÖ¸¦ ¹ŞÀº ÅÏÀÌ ¾Æ´Ï¶ó ´ÙÀ½ÅÏºÎÅÍ (is applied after the cursed turn)
-            if (monster.GetComponent<Monster>().myState.Equals(State.ISCURSED) && monster.gameObject != collision.gameObject&&turnDiff>0)
-            {
-                monster.GetComponent<IMonsterCollision>().UpdateHp(additionalDamage);
-            }
-        }
-    }
+
 }

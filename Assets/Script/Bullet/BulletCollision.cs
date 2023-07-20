@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 public class BulletCollision : MonoBehaviour
@@ -66,6 +66,8 @@ public class BulletCollision : MonoBehaviour
         if (collision.transform.CompareTag("Monster"))
         {
             collision.transform.GetComponent<IMonsterCollision>().UpdateHp(bulletScript.myStat.power);
+            Monster mon = collision.transform.GetComponent<Monster>();
+            mon.CheckingState(mon.myState,bulletScript.myStat.power,mon);
         }
         
     }

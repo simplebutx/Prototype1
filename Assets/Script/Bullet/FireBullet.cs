@@ -1,4 +1,4 @@
-using System.Collections;
+Ôªøusing System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,8 +9,8 @@ public class FireBullet : Bullet
         if (collision.transform.CompareTag("Monster"))
         {
             Monster monster = collision.gameObject.GetComponent<Monster>();
-            monster.myState = State.BURNING;
-            monster.myBurningTurn = 2;  //≈œ √ ±‚»≠
+            monster.myState = StateSystem.State.BURNING;
+            monster.myBurningTurn = 2;
         }
     }
 }

@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using static UnityEngine.RuleTile.TilingRuleOutput;
@@ -13,20 +13,18 @@ public class turnprogressbutton : MonoBehaviour
         slot.SetActive(true);
         dragPoint.SetActive(true);
         GameObject[] tempBullets = GameObject.FindGameObjectsWithTag("Bullet");
-        GameObject[] tempMonsters = GameObject.FindGameObjectsWithTag("Monster");
         for (int i = 0; i < tempBullets.Length; i++)
         {
             Destroy(tempBullets[i]);
         }
-        for (int i = 0; i < tempMonsters.Length; i++)   // ÅÏÀÌ Á¾·áµÆÀ»¶§ È­¿°µ¥¹ÌÁö
+        GameObject[] tempMonsters = GameObject.FindGameObjectsWithTag("Monster");
+        for (int i = 0; i < tempMonsters.Length; i++)
         {
             Monster monster = tempMonsters[i].GetComponent<Monster>();
 
-            if (monster.myState.Equals(State.BURNING)&&monster.myBurningTurn>0)
+            if (monster.myState.Equals(StateSystem.State.BURNING) && monster.myBurningTurn > 0)
             {
-                IMonsterCollision imc = tempMonsters[i].GetComponent<IMonsterCollision>();
-                imc.CheckFire();
-                imc.UpdateHp(fb.myStat.power) ;
+                monster.CheckState(monster.myState, fb.myStat.power, monster);
             }
         }
     }

@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -8,13 +8,9 @@ using UnityEngine.EventSystems;
 public interface IMonsterCollision//총알과 충돌시 hp업데이트 인터페이스
 {
     public void UpdateHp(float damage);
-    public void CheckFire();    //도트데미지용 턴 계산
+    public void CheckingState(StateSystem.State t, float damage, Monster monster);
 }
-public enum State
-{
-    NORMAL, ISCURSED, BURNING
-}
-public class Monster : MonoBehaviour, IMonsterStat, IMonsterCollision,IPointerClickHandler
+public class Monster : StateSystem, IMonsterStat, IMonsterCollision,IPointerClickHandler
 {
     public MonsterStat monsterStat = new MonsterStat();
     public UnityEvent onDestroy = new UnityEvent();
@@ -22,7 +18,7 @@ public class Monster : MonoBehaviour, IMonsterStat, IMonsterCollision,IPointerCl
     public Slider hpSlider;
     public bool isClicked = false;
     public GameObject xButton;
-    public State myState = State.NORMAL; //영진 추가
+    public State myState =State.NORMAL; //영진 추가
     public int myBurningTurn = 2;
     public int myCurseTurn = 0;
     public float percentage = 0.3f;//나중에 1성~3성에 따라 외부에서 가져올 값
@@ -42,12 +38,9 @@ public class Monster : MonoBehaviour, IMonsterStat, IMonsterCollision,IPointerCl
         }
         hpSlider.value = monsterStat.hp / monsterStat.maxHp ;
     }
-    public void CheckFire()
+    public void CheckingState(StateSystem.State t, float damage, Monster monster)
     {
-        if (myBurningTurn > 0 && myState.Equals(State.BURNING))
-        {
-            myBurningTurn -= 1;
-        }
+        if(!t.Equals(State.BURNING))CheckState(t,damage,monster);
     }
     
     public void DestroySelf()
