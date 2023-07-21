@@ -11,9 +11,10 @@ public class CurseBullet : Bullet
         if (collision.transform.CompareTag("Monster"))
         {
             Monster monster = collision.gameObject.GetComponent<Monster>();
-            collision.gameObject.GetComponent<SpriteRenderer>().color = Color.green;
+            GameObject mark=Instantiate(Resources.Load("LYJ/Cursed") as GameObject, monster.transform.localPosition,monster.transform.localRotation);
+            mark.transform.SetParent(monster.transform);
             monster.myState = StateSystem.State.ISCURSED;
-            if (monster.myCurseTurn.Equals(0))  // ó�� ���ֱ������� ���ݴ��� ���� ���
+            if (monster.myCurseTurn.Equals(0)) 
             {
                 monster.myCurseTurn = DataController.instance.gameData.turn;
             }

@@ -9,6 +9,7 @@ public class FireBullet : Bullet
         if (collision.transform.CompareTag("Monster"))
         {
             Monster monster = collision.gameObject.GetComponent<Monster>();
+            collision.gameObject.GetComponent<SpriteRenderer>().color = Color.red;
             monster.myState = StateSystem.State.BURNING;
             monster.myBurningTurn = 2;
         }
