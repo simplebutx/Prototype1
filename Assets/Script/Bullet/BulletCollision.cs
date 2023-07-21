@@ -2,17 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using TMPro;
 
 public abstract class BulletCollision : MonoBehaviour
 {
-    private BulletStat myStat;
+    public BulletStat myStat;
     private CountBulletBounce count;
     private BulletCollisionPhysics physics;
+    private GameObject damageTextPrefab;
+    private GameObject damageTextCopy;
     protected virtual void Start()
     {
         myStat = transform.GetComponent<IBulletStat>().ReturnBulletStat();
         physics = transform.GetComponent<BulletCollisionPhysics>();
         count = new CountBulletBounce(this, myStat.bounce);
+        damageTextPrefab = Resources.Load("DamageText") as GameObject;
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -28,6 +32,12 @@ public abstract class BulletCollision : MonoBehaviour
             }
         }
         if(physics.CalculatePhysics(collision)) count.AddCount();
+    }
+    public void HpMinusTextFloating(float val)
+    {
+        damageTextCopy = Instantiate(damageTextPrefab);
+        damageTextCopy.transform.Find("Text").GetComponent<TextMeshProUGUI>().text = val.ToString();
+        damageTextCopy.transform.localPosition = transform.position;
     }
     public abstract void OnActivateSkill();
     public abstract void OnDestroyMonster(Collision2D collision);

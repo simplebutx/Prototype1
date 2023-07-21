@@ -14,6 +14,6 @@ public class RockBulletCollision : BulletCollision
     }
     public override void OnCollisionMonster(Collision2D collision)
     {
-        //Debug.Log("Collision at Monster");
+        HpMinusTextFloating(myStat.power);
     }
 }
