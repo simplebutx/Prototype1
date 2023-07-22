@@ -12,12 +12,12 @@ GameObject:
   - component: {fileID: 5947268330714179935}
   - component: {fileID: 2293923188930037512}
   - component: {fileID: 513811674332971412}
-  - component: {fileID: 7512143182326986987}
   - component: {fileID: 5976298124921366606}
-  - component: {fileID: 485736816751466202}
+  - component: {fileID: 8774965667917286076}
+  - component: {fileID: 3057343250833675764}
   m_Layer: 6
-  m_Name: Bullet2
-  m_TagString: Untagged
+  m_Name: RockBullet
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -57,7 +57,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c2ad91ee34326ad4997e70b74adb8f11, type: 2}
+  - {fileID: 2100000, guid: 0aa5ff0211f0b5543a4b12b3ad397a21, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -79,7 +79,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.9622642, g: 0, b: 0, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -126,24 +126,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!114 &7512143182326986987
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1847814997317675589}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81fc76d8be681f14bb1d4389610ffae1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  direction: {x: 0, y: 0}
-  myStat:
-    direction: {x: 0, y: 0}
-    power: 4
-    speed: 10
-  type: 0
 --- !u!114 &5976298124921366606
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -156,7 +138,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfcb95b8a6ac7014199b779209be1d4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &485736816751466202
+--- !u!114 &8774965667917286076
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -165,6 +147,28 @@ MonoBehaviour:
   m_GameObject: {fileID: 1847814997317675589}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2018a9a6c20a8f54aad4e475c27bcdf9, type: 3}
+  m_Script: {fileID: 11500000, guid: e22f1961cc437a04bb41c9488ef078db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  direction: {x: 0, y: 0}
+  rigidbody: {fileID: 0}
+  myStat:
+    direction: {x: 0, y: 0}
+    power: 0
+    star: 0
+    bounce: 3
+    speed: 30
+  rockBulletPrefab: {fileID: 0}
+  rockBulletCopy: {fileID: 0}
+--- !u!114 &3057343250833675764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1847814997317675589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc097ce5b2f30c143b5269c28d876a0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
