@@ -19,11 +19,11 @@ public class BirdBabyBullet : MonoBehaviour
         dir = (target.transform.position - transform.position);
         if (Vector3.Cross(dir, rigidbody.velocity).z < 0)
         {
-            dir = Quaternion.AngleAxis(2.5f, Vector3.forward) * rigidbody.velocity;
+            dir = Quaternion.AngleAxis(12f, Vector3.forward) * rigidbody.velocity;
         }
         else
         {
-            dir = Quaternion.AngleAxis(-2.5f, Vector3.forward) * rigidbody.velocity;
+            dir = Quaternion.AngleAxis(-12f, Vector3.forward) * rigidbody.velocity;
         }
         rigidbody.velocity = dir;
     }
