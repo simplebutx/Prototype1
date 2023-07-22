@@ -7,7 +7,7 @@ using UnityEngine.EventSystems;
 
 public interface IMonsterCollision//총알과 충돌시 hp업데이트 인터페이스
 {
-    public void UpdateHp(float damage);
+    public bool UpdateHp(float damage);
     public void CheckingState(StateSystem.State t, float damage, Monster monster);
 }
 public class Monster : StateSystem, IMonsterStat, IMonsterCollision,IPointerClickHandler
