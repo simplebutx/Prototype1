@@ -22,7 +22,6 @@ public class BulletShoot : MonoBehaviour
         bulletPrefab = Resources.Load(choosedBullet.name) as GameObject;
     }
 
-
     public void InstantiateBullet()//�Ѿ� �ν��Ͻ�ȭ �� ���� ����
     {
         bulletCopy = Instantiate(bulletPrefab, transform.position, Quaternion.identity);

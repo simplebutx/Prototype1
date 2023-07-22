@@ -813,8 +813,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   monsterStat:
-    maxHp: 20
-    hp: 20
+    maxHp: 0
+    hp: 0
     power: 0
   onDestroy:
     m_PersistentCalls:
