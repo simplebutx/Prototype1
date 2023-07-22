@@ -16869,6 +16869,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slot: {fileID: 977537278}
   dragPoint: {fileID: 298394142}
+  fb: {fileID: 0}
 --- !u!114 &1250286603
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17571,7 +17572,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6fc4bde9f4d3f54c9fbc6bf725c1e2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  smoothness: 0.0005
+  smoothness: 0.01
 --- !u!1 &1310135081
 GameObject:
   m_ObjectHideFlags: 0
@@ -25921,10 +25922,10 @@ MonoBehaviour:
   Btn_Bullet2: {fileID: 1798853888}
   Btn_Bullet3: {fileID: 212104361}
   Btn_Bullet4: {fileID: 352961478}
-  Bullet: {fileID: 1847814997317675589, guid: c46ef1c9cc4568047b7a923aa6ab1340, type: 3}
-  Bullet2: {fileID: 1847814997317675589, guid: c0a3a6a6c121ee94dbbad7e626e2812a, type: 3}
-  Bullet3: {fileID: 1847814997317675589, guid: 396d4dcb1d454ab418b32775e6db37c4, type: 3}
-  Bullet4: {fileID: 1847814997317675589, guid: ee45c67d47738634da76f7e7fd68f97d, type: 3}
+  Bullet: {fileID: 1847814997317675589, guid: d5885e3fc6707e242909cfeb064236fd, type: 3}
+  Bullet2: {fileID: 1847814997317675589, guid: 179c5f97a087ec245a39415a4d6e622a, type: 3}
+  Bullet3: {fileID: 3559936803019895082, guid: 73739f97cba04a947a594f466758050b, type: 3}
+  Bullet4: {fileID: 1847814997317675589, guid: c567b74802167a74a8c81f0bc34947b7, type: 3}
   bulletShoot: {fileID: 561506444}
 --- !u!4 &1838412092
 Transform:
