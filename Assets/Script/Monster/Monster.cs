@@ -14,7 +14,6 @@ public class Monster : StateSystem, IMonsterStat, IMonsterCollision,IPointerClic
 {
     public MonsterStat monsterStat = new MonsterStat();
     public UnityEvent onDestroy = new UnityEvent();
-    public ScriptableMonster myData;
     public Slider hpSlider;
     public bool isClicked = false;
     public GameObject xButton;
@@ -25,18 +24,19 @@ public class Monster : StateSystem, IMonsterStat, IMonsterCollision,IPointerClic
     private void Start()
     {
         onDestroy.AddListener(DestroySelf);
-        monsterStat.hp = myData.maxHp;
-        monsterStat.maxHp = myData.maxHp;
     }
-    public void UpdateHp(float damage)
+
+    public bool UpdateHp(float damage)
     {
         monsterStat.hp -= damage;
 
         if (monsterStat.hp <= 0)
         {
             onDestroy.Invoke();
+            return true;
         }
         hpSlider.value = monsterStat.hp / monsterStat.maxHp ;
+        return false;
     }
     public void CheckingState(StateSystem.State t, float damage, Monster monster)
     {

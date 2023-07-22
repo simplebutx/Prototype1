@@ -1,5 +1,5 @@
 
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
@@ -8,28 +8,29 @@ public interface IBulletStat
 {
     public BulletStat ReturnBulletStat();
 }
-
-public class Bullet : MonoBehaviour, IBulletStat
+public abstract class Bullet:MonoBehaviour, IBulletStat
 {
     public Vector2 direction;
-    private Rigidbody2D rigidbody = null;
+    public Rigidbody2D rigidbody=null;
     public BulletStat myStat = new BulletStat();
-    private void Start()//인스턴스화 하면 캐논에서 받아온 direction으로 발사된다.
+    protected virtual void Start()
     {
         rigidbody = GetComponent<Rigidbody2D>();
         rigidbody.velocity = myStat.direction.normalized * myStat.speed;
+        StarClassification();
     }
-
     public BulletStat ReturnBulletStat()
     {
         return myStat;
     }
+    public abstract void StarClassification();//별에따른 스탯 적용함수
 }
 
 [Serializable]
 public class BulletStat
 {
     public Vector2 direction;
-    public int power;
-    public float speed;
+    public float power;
+    public int star;
+    public int bounce;
 }

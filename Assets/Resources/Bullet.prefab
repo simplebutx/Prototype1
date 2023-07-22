@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 5947268330714179935}
   - component: {fileID: 2293923188930037512}
   - component: {fileID: 513811674332971412}
-  - component: {fileID: 7512143182326986987}
   - component: {fileID: 5976298124921366606}
   m_Layer: 6
   m_Name: Bullet
@@ -143,15 +142,3 @@ MonoBehaviour:
     power: 10
     speed: 10
   type: 0
---- !u!114 &5976298124921366606
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1847814997317675589}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cfcb95b8a6ac7014199b779209be1d4e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
