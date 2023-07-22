@@ -1,3 +1,4 @@
+
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -32,5 +33,4 @@ public class BulletStat
     public float power;
     public int star;
     public int bounce;
-    public float speed;
 }
