@@ -10,7 +10,7 @@ public interface IMonsterCollision//총알과 충돌시 hp업데이트 인터페
     public bool UpdateHp(float damage);
     public void CheckingState(StateSystem.State t, float damage, Monster monster);
 }
-public class Monster : StateSystem, IMonsterStat, IMonsterCollision,IPointerClickHandler
+public class Monster :StateSystem, IMonsterStat, IMonsterCollision,IPointerClickHandler
 {
     public MonsterStat monsterStat = new MonsterStat();
     public UnityEvent onDestroy = new UnityEvent();
@@ -38,7 +38,7 @@ public class Monster : StateSystem, IMonsterStat, IMonsterCollision,IPointerClic
         hpSlider.value = monsterStat.hp / monsterStat.maxHp ;
         return false;
     }
-    public void CheckingState(StateSystem.State t, float damage, Monster monster)
+    public void CheckingState(State t, float damage, Monster monster)
     {
         if(!t.Equals(State.BURNING))CheckState(t,damage,monster);
     }

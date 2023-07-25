@@ -4,12 +4,17 @@ using UnityEngine;
 
 public class FireBullet : Bullet
 {
+    private BuffSystem buff;
+    protected override void Start()
+    {
+       buff=transform.GetComponent<BuffSystem>();
+    }
     public void FireMonster(Collision2D collision)
     {
         Monster monster = collision.gameObject.GetComponent<Monster>();
-        collision.gameObject.GetComponent<SpriteRenderer>().color = Color.red;
         monster.myState = StateSystem.State.BURNING;
         monster.myBurningTurn = 2;
+        buff.Collided(2);//2는 턴
     }
     public override void StarClassification()
     {

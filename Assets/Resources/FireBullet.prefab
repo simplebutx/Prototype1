@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 5976298124921366606}
   - component: {fileID: 5426666524557955524}
   - component: {fileID: 5772235548773499210}
+  - component: {fileID: 130798980194890983}
   m_Layer: 6
   m_Name: FireBullet
   m_TagString: Bullet
@@ -155,8 +156,8 @@ MonoBehaviour:
   myStat:
     direction: {x: 0, y: 0}
     power: 4
-    star: 0
-    bounce: 0
+    star: 1
+    bounce: 3
     speed: 10
 --- !u!114 &5772235548773499210
 MonoBehaviour:
@@ -176,3 +177,18 @@ MonoBehaviour:
     star: 0
     bounce: 0
     speed: 0
+--- !u!114 &130798980194890983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1847814997317675589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23c17c172044a6b45a59e13719f7e764, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  events:
+    m_PersistentCalls:
+      m_Calls: []

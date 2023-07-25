@@ -150,7 +150,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   direction: {x: 0, y: 0}
+  rigidbody: {fileID: 0}
   myStat:
     direction: {x: 0, y: 0}
     power: 6
+    star: 1
+    bounce: 2
     speed: 10
+  isFirstHit: 0
+  percentage:
+  - 0.3
+  - 0.7
+  - 1
