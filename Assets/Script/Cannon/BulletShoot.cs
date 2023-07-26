@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -13,7 +13,6 @@ public class BulletShoot : MonoBehaviour
     private void Start()
     {
         dragPoint = transform.Find("DragPoint");
-        
     }
 
     public void choose()

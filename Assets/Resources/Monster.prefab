@@ -742,7 +742,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 677fec128e8ffa74488cb8a5214cf7e6, type: 2}
+  - {fileID: 2100000, guid: c2ad91ee34326ad4997e70b74adb8f11, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -764,7 +764,7 @@ SpriteRenderer:
   m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0.15004349, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -812,6 +812,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77b3f1c3d382f6c45a1b230d3816fdfa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cursePercentage:
+  - 0.3
+  - 0.7
+  - 1
   monsterStat:
     maxHp: 0
     hp: 0
@@ -819,7 +823,10 @@ MonoBehaviour:
   onDestroy:
     m_PersistentCalls:
       m_Calls: []
-  myData: {fileID: 11400000, guid: af5ddad69a41db141bec8bcb021bf458, type: 2}
   hpSlider: {fileID: 7214526198292400110}
   isClicked: 0
   xButton: {fileID: 6745802025686209069}
+  myState: 0
+  myBurningTurn: 2
+  myCurseTurn: 0
+  percentage: 0.3

@@ -56,6 +56,5 @@ public class Monster : StateSystem, IMonsterStat, IMonsterCollision,IPointerClic
     {
         isClicked = (isClicked ? false : true);
         xButton.SetActive(isClicked);
-
     }
 }
