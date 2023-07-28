@@ -4,23 +4,16 @@ using UnityEngine;
 
 public class FireBullet : Bullet
 {
-    private BuffSystem buff;
-    protected override void Start()
-    {
-       buff=transform.GetComponent<BuffSystem>();
-    }
     public void FireMonster(Collision2D collision)
     {
         Monster monster = collision.gameObject.GetComponent<Monster>();
-        monster.myState = StateSystem.State.BURNING;
-        monster.myBurningTurn = 2;
-        buff.Collided(2);//2는 턴
+        BuffSystem.instance.Collided(2, monster, myStat.power);      
     }
     public override void StarClassification()
     {
         if (myStat.star == 1)
         {
-            myStat.power = 3;
+            myStat.power = 4;
         }
         else if (myStat.star == 2)
         {

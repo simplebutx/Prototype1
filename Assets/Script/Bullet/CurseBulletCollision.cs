@@ -16,13 +16,13 @@ public class CurseBulletCollision : BulletCollision
     }
     public override void OnDestroyMonster(Collision2D collision)
     {
-        //Debug.Log("Destroyed Monster");
+        
     }
     public override void OnCollisionMonster(Collision2D collision)
     {
         if (collision.transform.CompareTag("Monster"))
         {
-            curseBulletScript.CurseMonster(collision);
+            curseBulletScript.CurseMonster(collision,monsterList);
         }
         HpMinusTextFloating(myStat.power);
     }

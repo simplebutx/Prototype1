@@ -10,32 +10,28 @@ public class turnprogressbutton : MonoBehaviour
     public GameObject dragPoint;
     public FireBullet fb;
     public BuffSystem buff;
-    public void OnClick()
+    public GameObject monsterList;
+    public void OnClick()   //턴진행 누를시
     {
         slot.SetActive(true);
         dragPoint.SetActive(true);
-        GameObject[] tempBullets = GameObject.FindGameObjectsWithTag("Bullet");
-        for (int i = 0; i < tempBullets.Length; i++)
+        Curse();
+        if (buff.monsters.Count > 0)
         {
-            Destroy(tempBullets[i]);
-        }
-        AfterTurn();
-       /*foreach(BuffMonsters bm in buff.burned)
-        {
-            bm.Progress();
-        }*/
-    }
-    public void AfterTurn()
-    {
-        GameObject[] tempMonsters = GameObject.FindGameObjectsWithTag("Monster");
-        for (int i = 0; i < tempMonsters.Length; i++)
-        {
-            Monster monster = tempMonsters[i].GetComponent<Monster>();
-
-            if (monster.myState.Equals(StateSystem.State.BURNING))
+            for(int i = 0; i < buff.monsters.Count; i++)
             {
-                monster.CheckState(monster.myState, fb.myStat.power, monster);
+                buff.monsters[i].Progress(i);
             }
+         }
+        
+    }
+    public void Curse()
+    {
+        Monster[] mons = monsterList.GetComponentsInChildren<Monster>();
+        for (int i = 0; i < mons.Length; i++)
+        {
+            if (!mons[i].cursed) mons[i].cursed = true;
         }
     }
+
 }
