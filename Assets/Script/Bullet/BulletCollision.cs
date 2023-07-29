@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
@@ -26,10 +26,7 @@ public abstract class BulletCollision : MonoBehaviour
             {
                 OnDestroyMonster(collision);
             }
-            else
-            {
-                OnCollisionMonster(collision);
-            }
+            OnCollisionMonster(collision);
         }
         if(physics.CalculatePhysics(collision)) count.AddCount();
     }
