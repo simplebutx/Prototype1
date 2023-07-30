@@ -155,8 +155,8 @@ MonoBehaviour:
   myStat:
     direction: {x: 0, y: 0}
     power: 4
-    star: 0
-    bounce: 0
+    star: 1
+    bounce: 3
     speed: 10
 --- !u!114 &5772235548773499210
 MonoBehaviour:

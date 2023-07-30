@@ -1587,6 +1587,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slot: {fileID: 758155789}
   dragPoint: {fileID: 1739932107}
+  mainCamera: {fileID: 519420028}
 --- !u!1 &144318012
 GameObject:
   m_ObjectHideFlags: 0
@@ -2092,6 +2093,80 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!1 &168171057
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 168171059}
+  - component: {fileID: 168171058}
+  m_Layer: 0
+  m_Name: BuffSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &168171058
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 168171057}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23c17c172044a6b45a59e13719f7e764, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  events:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 168171058}
+        m_TargetAssemblyTypeName: BuffSystem, Assembly-CSharp
+        m_MethodName: Fire
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 168171058}
+        m_TargetAssemblyTypeName: BuffSystem, Assembly-CSharp
+        m_MethodName: Ice
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  orgMonsters: []
+  index: 0
+  firedamage: 0
+--- !u!4 &168171059
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 168171057}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.23730922, y: 0.6429685, z: -0.004830977}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &169516954
 GameObject:
   m_ObjectHideFlags: 0
@@ -6135,6 +6210,7 @@ GameObject:
   - component: {fileID: 519420032}
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
+  - component: {fileID: 519420033}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -6208,6 +6284,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &519420033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6fc4bde9f4d3f54c9fbc6bf725c1e2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  smoothness: 0.001
 --- !u!1 &520172345
 GameObject:
   m_ObjectHideFlags: 0
@@ -15036,6 +15125,8 @@ MonoBehaviour:
   slot: {fileID: 758155789}
   dragPoint: {fileID: 1739932107}
   fb: {fileID: 5426666524557955524, guid: 179c5f97a087ec245a39415a4d6e622a, type: 3}
+  buff: {fileID: 168171058}
+  monsterList: {fileID: 1531821637}
 --- !u!1 &1145882620
 GameObject:
   m_ObjectHideFlags: 0
@@ -19587,6 +19678,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1527899251}
   m_CullTransparentMesh: 1
+--- !u!1 &1531821637
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1531821638}
+  m_Layer: 0
+  m_Name: Monsters
+  m_TagString: MonsterList
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1531821638
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1531821637}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 4.546691, y: 0.7035974, z: 330.2893}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1533050965
 GameObject:
   m_ObjectHideFlags: 0
@@ -23907,7 +24029,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44b8ccd940c7c1244bcf83080a773e8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 1847814997317675589, guid: c46ef1c9cc4568047b7a923aa6ab1340, type: 3}
+  bulletPrefab: {fileID: 1847814997317675589, guid: d5885e3fc6707e242909cfeb064236fd, type: 3}
   chooseBullet: {fileID: 1912781590}
   choosedBullet: {fileID: 1912781587}
 --- !u!114 &1912781590
@@ -23927,7 +24049,7 @@ MonoBehaviour:
   Btn_Bullet2: {fileID: 1527899253}
   Btn_Bullet3: {fileID: 250996942}
   Btn_Bullet4: {fileID: 788971682}
-  Bullet: {fileID: 1847814997317675589, guid: c46ef1c9cc4568047b7a923aa6ab1340, type: 3}
+  Bullet: {fileID: 1847814997317675589, guid: d5885e3fc6707e242909cfeb064236fd, type: 3}
   Bullet2: {fileID: 1847814997317675589, guid: 179c5f97a087ec245a39415a4d6e622a, type: 3}
   Bullet3: {fileID: 1847814997317675589, guid: 396d4dcb1d454ab418b32775e6db37c4, type: 3}
   Bullet4: {fileID: 1847814997317675589, guid: c567b74802167a74a8c81f0bc34947b7, type: 3}
