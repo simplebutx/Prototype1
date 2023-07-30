@@ -694,6 +694,7 @@ GameObject:
   - component: {fileID: 7194802804925882449}
   - component: {fileID: 8575399162923089223}
   - component: {fileID: 2656923409910331615}
+  - component: {fileID: 225455931492526621}
   m_Layer: 0
   m_Name: Monster
   m_TagString: Monster
@@ -742,7 +743,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c2ad91ee34326ad4997e70b74adb8f11, type: 2}
+  - {fileID: 2100000, guid: 677fec128e8ffa74488cb8a5214cf7e6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -764,7 +765,7 @@ SpriteRenderer:
   m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0, g: 0.15004349, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -812,10 +813,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77b3f1c3d382f6c45a1b230d3816fdfa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cursePercentage:
-  - 0.3
-  - 0.7
-  - 1
   monsterStat:
     maxHp: 0
     hp: 0
@@ -826,7 +823,22 @@ MonoBehaviour:
   hpSlider: {fileID: 7214526198292400110}
   isClicked: 0
   xButton: {fileID: 6745802025686209069}
-  myState: 0
-  myBurningTurn: 2
-  myCurseTurn: 0
+  cursed: 0
   percentage: 0.3
+--- !u!114 &225455931492526621
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7194802804925882448}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fe56c2656a7b60489a0cae99ffa1fa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  burns:
+    monster: {fileID: 0}
+    buffSystem: {fileID: 0}
+    turn: {fileID: 0}
+    count: 0

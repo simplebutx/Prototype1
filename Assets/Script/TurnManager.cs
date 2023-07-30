@@ -24,7 +24,7 @@ public class TurnManager : MonoBehaviour
         //Curse();
         turn++;
         OnTurnProgress.Invoke();
-    }/*
+    }
     public void Curse()
     {
         Monster[] mons = monsterList.GetComponentsInChildren<Monster>();
@@ -33,5 +33,4 @@ public class TurnManager : MonoBehaviour
             if (!mons[i].cursed) mons[i].cursed = true;
         }
     }
-    */
 }

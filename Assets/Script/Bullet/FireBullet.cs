@@ -4,10 +4,6 @@ using UnityEngine;
 
 public class FireBullet : Bullet
 {
-    public void FireMonster(GameObject monster)
-    {
-        monster.GetComponent<IMonsterCollision>().UpdateHp(30);
-    }
     public override void StarClassification()
     {
         if (myStat.star == 1)
