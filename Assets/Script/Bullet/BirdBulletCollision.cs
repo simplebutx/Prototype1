@@ -22,6 +22,5 @@ public class BirdBulletCollision : BulletCollision
     }
     public override void OnCollisionMonster(Collision2D collision)
     {
-        HpMinusTextFloating(myStat.power);
     }
 }

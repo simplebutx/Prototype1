@@ -2,15 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-using TMPro;
 
 public abstract class BulletCollision : MonoBehaviour
 {
     public BulletStat myStat;
     private CountBulletBounce count;
     private BulletCollisionPhysics physics;
-    private GameObject damageTextPrefab;
-    private GameObject damageTextCopy;
     public GameObject monsterList;//영진 추가
     public float[] percentage = { 0.3f, 0.7f, 1f };
     protected virtual void Start()
@@ -18,7 +15,6 @@ public abstract class BulletCollision : MonoBehaviour
         myStat = transform.GetComponent<IBulletStat>().ReturnBulletStat();
         physics = transform.GetComponent<BulletCollisionPhysics>();
         count = new CountBulletBounce(this, myStat.bounce);
-        damageTextPrefab = Resources.Load("DamageText") as GameObject;
         monsterList = GameObject.FindWithTag("MonsterList");//하이라키상에 있는 빈 오브젝트를 불러옴
     }
     private void OnCollisionEnter2D(Collision2D collision)
@@ -43,12 +39,6 @@ public abstract class BulletCollision : MonoBehaviour
         }
         if(physics.CalculatePhysics(collision)) count.AddCount();
 
-    }
-    public void HpMinusTextFloating(float val)
-    {
-        damageTextCopy = Instantiate(damageTextPrefab);
-        damageTextCopy.transform.Find("Text").GetComponent<TextMeshProUGUI>().text = val.ToString();
-        damageTextCopy.transform.localPosition = transform.position;
     }
     public abstract void OnActivateSkill();
     public abstract void OnDestroyMonster(Collision2D collision);
