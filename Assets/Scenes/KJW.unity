@@ -3965,7 +3965,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slot: {fileID: 977537278}
   dragPoint: {fileID: 298394142}
-  monsterList: {fileID: 0}
+  monsterList: {fileID: 1045937589}
   OnTurnProgress:
     m_PersistentCalls:
       m_Calls: []
@@ -11784,6 +11784,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1044615193}
   m_CullTransparentMesh: 1
+--- !u!1 &1045937589
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1045937590}
+  m_Layer: 0
+  m_Name: Monsters
+  m_TagString: MonsterList
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1045937590
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1045937589}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 4.546691, y: 0.7035974, z: 330.2893}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 14
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1048677669
 PrefabInstance:
   m_ObjectHideFlags: 0
