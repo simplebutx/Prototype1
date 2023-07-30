@@ -1,38 +1,33 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class ScreenDrag : MonoBehaviour
+public class ScreenDrag : MonoBehaviour, IDragHandler, IBeginDragHandler
 {
     private Vector3 dragOrigin;
+    private Camera mainCamera;
     [SerializeField] public float smoothness= 0.001f;
 
-    private float minY = -18f; // Ä«¸Þ¶ó Y ÁÂÇ¥ÀÇ ÃÖ¼Ò °ª
-    private float maxY = 1; // Ä«¸Þ¶ó Y ÁÂÇ¥ÀÇ ÃÖ´ë °ª
-
-    void Update()
+    private float minY = -4.25f; 
+    private float maxY = 0;
+    private void Start()
     {
-        // ¸¶¿ì½º ¿ÞÂÊ ¹öÆ°À» ´©¸£¸é µå·¡±×¸¦ ½ÃÀÛÇÕ´Ï´Ù.
-        if (Input.GetMouseButtonDown(0))
-        {
-            dragOrigin = Input.mousePosition;
-            return;
-        }
+        mainCamera = Camera.main;
+    }
 
-        // ¸¶¿ì½º ¿ÞÂÊ ¹öÆ°À» ´©¸¥ Ã¤·Î µå·¡±×ÇÏ¸é Ä«¸Þ¶ó¸¦ ÀÌµ¿½ÃÅµ´Ï´Ù.
-        if (Input.GetMouseButton(0))
-        {
-            Vector3 currentPosition = Input.mousePosition;
-            Vector3 moveDirection = (currentPosition - dragOrigin) * smoothness;
+    public void OnBeginDrag(PointerEventData eventData)
+    {
+        dragOrigin = eventData.position;
+    }
+    public void OnDrag(PointerEventData eventData)//ë“œëž˜ê·¸ì¤‘ ìœ„ì¹˜ ë³€ê²½
+    {
+        Vector3 currentPosition = eventData.position;
+        Vector3 moveDirection = (currentPosition - dragOrigin) * smoothness;
+        moveDirection.x = 0;
 
-            // Ä«¸Þ¶ó ÀÌµ¿ ¹æÇâÀ» »ó´ëÀûÀÎ ¿ùµå ÁÂÇ¥·Î º¯È¯ÇÕ´Ï´Ù.
-            moveDirection.x = 0;
-
-            // Ä«¸Þ¶ó¸¦ ÀÌµ¿½ÃÅµ´Ï´Ù.
-            Vector3 newPosition = transform.position - moveDirection;
-            newPosition.y = Mathf.Clamp(newPosition.y, minY, maxY);
-            transform.position = newPosition;
-
-        }
+        Vector3 newPosition = mainCamera.transform.position - moveDirection;
+        newPosition.y = Mathf.Clamp(newPosition.y, minY, maxY);
+        mainCamera.transform.position = newPosition;
     }
 }

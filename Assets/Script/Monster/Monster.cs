@@ -61,6 +61,5 @@ public class Monster :MonoBehaviour, IMonsterStat, IMonsterCollision,IPointerCli
     {
         isClicked = (isClicked ? false : true);
         xButton.SetActive(isClicked);
-
     }
 }

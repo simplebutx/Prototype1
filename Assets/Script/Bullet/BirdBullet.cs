@@ -11,7 +11,7 @@ public class BirdBullet : Bullet
 
     protected override void Start()//몬스터 찾아서 체력순 리스트저장
     {
-        babyBirdPrefab = Resources.Load("BirdBabyBullet") as GameObject;
+        babyBirdPrefab = Resources.Load("MissileBabyBullet") as GameObject;
         monsters.AddRange(GameObject.FindGameObjectsWithTag("Monster"));
         monsters.Sort(compareHp);
         base.Start();

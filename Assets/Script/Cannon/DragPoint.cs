@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
@@ -14,20 +14,6 @@ public class DragPoint : MonoBehaviour//맵 전체에 투명한 평면 드래그
     {
         bulletShoot = transform.parent.GetComponent<BulletShoot>();
         originPos = transform.position;
-    }
-    private void Update()
-    {
-        GameObject[] temp = GameObject.FindGameObjectsWithTag("Monster");
-        if (temp.Length.Equals(0))
-        {
-            clear = true;
-            turnProcess.GetComponent<TurnManager>().OnClick(); 
-            this.gameObject.SetActive(false);
-        }
-        else
-        {
-            clear = false;
-        }
     }
     private void OnMouseUp()//드래그가 끝나면 총알 인스턴스화 시작
     {
