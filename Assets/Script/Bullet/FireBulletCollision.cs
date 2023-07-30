@@ -22,8 +22,7 @@ public class FireBulletCollision : BulletCollision
     {
         if (collision.transform.CompareTag("Monster"))
         {
-            fireBulletScript.FireMonster(collision);
+            collision.transform.GetComponent<BuffSystem>().Burn();
         }
-        HpMinusTextFloating(myStat.power);
     }
 }

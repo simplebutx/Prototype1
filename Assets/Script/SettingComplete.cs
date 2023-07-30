@@ -12,7 +12,6 @@ public class SettingComplete : MonoBehaviour
     {
         slot.SetActive(false);
         dragPoint.SetActive(true);
-        //ScreenDragPoint.SetActive(false);
         DataController.instance.gameData.turn += 1;     //게임에 들어가면 턴이 증가
         Debug.Log($"{DataController.instance.gameData.turn}턴");
     }

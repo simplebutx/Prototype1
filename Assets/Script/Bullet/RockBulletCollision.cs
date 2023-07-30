@@ -14,6 +14,6 @@ public class RockBulletCollision : BulletCollision
     }
     public override void OnCollisionMonster(Collision2D collision)
     {
-        HpMinusTextFloating(myStat.power);
+
     }
 }
