@@ -21,7 +21,7 @@ public class DragPoint : MonoBehaviour//맵 전체에 투명한 평면 드래그
         if (temp.Length.Equals(0))
         {
             clear = true;
-            turnProcess.GetComponent<turnprogressbutton>().OnClick(); 
+            turnProcess.GetComponent<TurnManager>().OnClick(); 
             this.gameObject.SetActive(false);
         }
         else

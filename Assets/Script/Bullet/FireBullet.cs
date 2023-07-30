@@ -4,10 +4,9 @@ using UnityEngine;
 
 public class FireBullet : Bullet
 {
-    public void FireMonster(Collision2D collision)
+    public void FireMonster(GameObject monster)
     {
-        Monster monster = collision.gameObject.GetComponent<Monster>();
-        BuffSystem.instance.Collided(2, monster, myStat.power);      
+        monster.GetComponent<IMonsterCollision>().UpdateHp(30);
     }
     public override void StarClassification()
     {

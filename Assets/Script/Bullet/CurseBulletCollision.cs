@@ -24,6 +24,5 @@ public class CurseBulletCollision : BulletCollision
         {
             curseBulletScript.CurseMonster(collision,monsterList);
         }
-        HpMinusTextFloating(myStat.power);
     }
 }
