@@ -22,10 +22,8 @@ public class MonsterDrag : MonoBehaviour, IDragHandler, IEndDragHandler, IBeginD
     }
     public void OnBeginDrag(PointerEventData eventData)//드래그 후 레이케스트로 슬롯 UI를 받아오기 위해 드래그용 몬스터의 레이케스트 비활성화
     {
-        if (dragManager.CheckDrag())
-        {
-            image.raycastTarget = false;
-        }
+        image.raycastTarget = false;
+        dragManager.TurnOffArea(dragManager.ScreenDragArea);
     }
     public void OnDrag(PointerEventData eventData)//드래그중 위치 변경
     {
@@ -43,6 +41,6 @@ public class MonsterDrag : MonoBehaviour, IDragHandler, IEndDragHandler, IBeginD
         }
         transform.localPosition = originPos;
         image.raycastTarget = true;//돌아가고 레이케스트 다시 활성화
-        dragManager.OnEndDrag();
+        dragManager.TurnOnArea(dragManager.ScreenDragArea);
     }
 }

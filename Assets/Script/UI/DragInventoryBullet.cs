@@ -21,10 +21,8 @@ public class DragInventoryBullet : MonoBehaviour, IDragHandler, IEndDragHandler,
     }
     public void OnBeginDrag(PointerEventData eventData)
     {
-        if (dragManager.CheckDrag(dragManager.SellArea))
-        {
-            image.raycastTarget = false;
-        }
+        dragManager.TurnOnArea(dragManager.SellArea);
+        image.raycastTarget = false;
     }
     public void OnDrag(PointerEventData eventData)//드래그중 위치 변경
     {
@@ -39,6 +37,6 @@ public class DragInventoryBullet : MonoBehaviour, IDragHandler, IEndDragHandler,
         }
         transform.localPosition = originPos;
         image.raycastTarget = true;//돌아가고 레이케스트 다시 활성화
-        dragManager.OnEndDrag(dragManager.SellArea);
+        dragManager.TurnOffArea(dragManager.SellArea);
     }
 }

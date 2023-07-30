@@ -3,10 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class ScreenDrag : MonoBehaviour, IDragHandler, IEndDragHandler, IBeginDragHandler
+public class ScreenDrag : MonoBehaviour, IDragHandler, IBeginDragHandler
 {
     private Vector3 dragOrigin;
-    private DragManager dragManager;
     private Camera mainCamera;
     [SerializeField] public float smoothness= 0.001f;
 
@@ -15,13 +14,11 @@ public class ScreenDrag : MonoBehaviour, IDragHandler, IEndDragHandler, IBeginDr
     private void Start()
     {
         mainCamera = Camera.main;
-        dragManager = GameObject.Find("DragManager").GetComponent<DragManager>();
     }
 
     public void OnBeginDrag(PointerEventData eventData)
     {
         dragOrigin = eventData.position;
-        dragManager.CheckDrag();
     }
     public void OnDrag(PointerEventData eventData)//드래그중 위치 변경
     {
@@ -32,9 +29,5 @@ public class ScreenDrag : MonoBehaviour, IDragHandler, IEndDragHandler, IBeginDr
         Vector3 newPosition = mainCamera.transform.position - moveDirection;
         newPosition.y = Mathf.Clamp(newPosition.y, minY, maxY);
         mainCamera.transform.position = newPosition;
-    }
-    public void OnEndDrag(PointerEventData eventData)
-    {
-        dragManager.OnEndDrag();
     }
 }
