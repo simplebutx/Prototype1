@@ -37,7 +37,7 @@ public abstract class BulletCollision : MonoBehaviour
                 }
             }
         }
-        if(physics.CalculatePhysics(collision)) count.AddCount();
+        if(!physics.CalculatePhysics(collision)) count.AddCount();
 
     }
     public abstract void OnActivateSkill();

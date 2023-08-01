@@ -12,8 +12,6 @@ public class BombBulletCollision : BulletCollision
     {
         base.Start();
         bombBulletScript = transform.GetComponent<BombBullet>();
-
-        CountBulletBounce bombCount = new CountBulletBounce(this, 2);
     }
 
     public override void OnActivateSkill()

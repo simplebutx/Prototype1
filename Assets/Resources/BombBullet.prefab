@@ -156,7 +156,7 @@ MonoBehaviour:
     direction: {x: 0, y: 0}
     power: 5
     star: 1
-    bounce: 5
+    bounce: 2
     speed: 20
 --- !u!114 &-2587267702489874370
 MonoBehaviour:
@@ -181,5 +181,3 @@ MonoBehaviour:
   - 0.3
   - 0.7
   - 1
-  count: 0
-  skillCount: 0
