@@ -1,4 +1,4 @@
-using System;
+Ôªøusing System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,20 +12,23 @@ public class ChooseBullet : MonoBehaviour
     public Button Btn_Bullet2;
     public Button Btn_Bullet3;
     public Button Btn_Bullet4;
+    public Button Btn_Bullet5;
 
     public GameObject Bullet;
     public GameObject Bullet2;
     public GameObject Bullet3;
     public GameObject Bullet4;
+    public GameObject Bullet5;
 
     public BulletShoot bulletShoot;
 
-    public void Start() //∞¢ πˆ∆∞ø° «ÿ¥Á √—æÀ ∞°¡Æø¿¥¬ ¿Ã∫•∆Æ «“¥Á
+    public void Start() //Í∞Å Î≤ÑÌäºÏóê Ìï¥Îãπ Ï¥ùÏïå Í∞ÄÏ†∏Ïò§Îäî Ïù¥Î≤§Ìä∏ Ìï†Îãπ
     {
         Btn_Bullet1.onClick.AddListener(Bullet1Clicked);
         Btn_Bullet2.onClick.AddListener(Bullet2Clicked);
         Btn_Bullet3.onClick.AddListener(Bullet3Clicked);
         Btn_Bullet4.onClick.AddListener(Bullet4Clicked);
+        Btn_Bullet5.onClick.AddListener(Bullet5Clicked);
     }
     public void Bullet1Clicked()
     {
@@ -51,8 +54,10 @@ public class ChooseBullet : MonoBehaviour
         bulletShoot.GetComponent<BulletShoot>().choose();
     }
 
-    public void Update()
+    public void Bullet5Clicked()
     {
-        //Debug.Log(choosedBullet);
+        choosedBullet = Bullet5;
+        bulletShoot.GetComponent<BulletShoot>().choose();
     }
+
 }
