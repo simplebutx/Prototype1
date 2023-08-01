@@ -157,7 +157,7 @@ MonoBehaviour:
     power: 5
     star: 1
     bounce: 5
-    speed: 5
+    speed: 20
 --- !u!114 &-2587267702489874370
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -181,3 +181,5 @@ MonoBehaviour:
   - 0.3
   - 0.7
   - 1
+  count: 0
+  skillCount: 0
