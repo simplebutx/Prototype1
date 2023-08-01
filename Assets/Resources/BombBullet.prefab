@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 2293923188930037512}
   - component: {fileID: 513811674332971412}
   - component: {fileID: 5976298124921366606}
-  - component: {fileID: 9054256776365487452}
-  - component: {fileID: 1114751768160556931}
+  - component: {fileID: -4261576377086603616}
+  - component: {fileID: -2587267702489874370}
   m_Layer: 6
   m_Name: BombBullet
   m_TagString: Bullet
@@ -79,7 +79,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 1, g: 0.8602543, b: 0, a: 1}
+  m_Color: {r: 0.9938829, g: 1, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -138,7 +138,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfcb95b8a6ac7014199b779209be1d4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &9054256776365487452
+--- !u!114 &-4261576377086603616
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -154,11 +154,11 @@ MonoBehaviour:
   rigidbody: {fileID: 0}
   myStat:
     direction: {x: 0, y: 0}
-    power: 4
-    star: 4
-    bounce: 4
-    speed: 4
---- !u!114 &1114751768160556931
+    power: 5
+    star: 1
+    bounce: 5
+    speed: 5
+--- !u!114 &-2587267702489874370
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

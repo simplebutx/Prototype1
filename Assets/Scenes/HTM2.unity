@@ -10887,8 +10887,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1089798714}
   m_HandleRect: {fileID: 1089798713}
   m_Direction: 2
-  m_Value: 1.0000002
-  m_Size: 0.60979533
+  m_Value: 1
+  m_Size: 0.6097953
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -19457,8 +19457,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1975687789}
   m_HandleRect: {fileID: 1975687788}
   m_Direction: 0
-  m_Value: 0
-  m_Size: 0.99999994
+  m_Value: 1
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -20862,7 +20862,7 @@ MonoBehaviour:
   Bullet2: {fileID: 1847814997317675589, guid: 179c5f97a087ec245a39415a4d6e622a, type: 3}
   Bullet3: {fileID: 3559936803019895082, guid: 73739f97cba04a947a594f466758050b, type: 3}
   Bullet4: {fileID: 1847814997317675589, guid: c567b74802167a74a8c81f0bc34947b7, type: 3}
-  Bullet5: {fileID: 1847814997317675589, guid: a0e82b82ba71b0c4f902260dd452c24e, type: 3}
+  Bullet5: {fileID: 1847814997317675589, guid: 1325cdb7cdbd4f941856c5d2c3160823, type: 3}
   bulletShoot: {fileID: 561506444}
 --- !u!4 &1838412092
 Transform:

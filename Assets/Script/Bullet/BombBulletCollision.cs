@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class BombBulletCollision : BulletCollision
 {
-    protected override void Start()
+    public BombBullet bombBulletScript { get; protected set; }
+    protected override void Start() 
     {
-        
+        base.Start();
+        bombBulletScript = transform.GetComponent<BombBullet>();
     }
     public override void OnActivateSkill()
     {
